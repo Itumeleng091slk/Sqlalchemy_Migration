@@ -7,7 +7,7 @@ from flask_migrate import Migrate, MigrateCommand
 connection = psycopg2.connect(database="prod", user="user", password="pass", host="localhost", port=5432)
 cursor = connection.cursor()
 
-query = """ INSERT INTO recruit(first_name,surname,chat_name,github_name,personal_email_address,cohort_recruits)
+query = """ INSERT INTO recruit(first_name,surname,rocketchat_user,github_name,personal_email_address,cohort_recruits)
 VALUES
 ('Shaun','Themos','shaunT20','Shaun091T','Shaun.t@example.com','c27 data_eng'),
 ('Grace','Hope','graceH22','grace092H','Grace.H@example.com','c27 data_eng'),
@@ -36,7 +36,7 @@ class Recruit(db.Model):
     first_name = db.Column(db.String(20))
     surname = db.Column(db.String(20))
     personal_email_address = db.Column(db.VARCHAR(100))
-    chat_name = db.Column(db.VARCHAR(50))
+    rocketchat_user = db.Column(db.VARCHAR(50))
     github_name = db.Column(db.VARCHAR(50))
     # id_number = db.Column(db.NUMERIC(15))
     cohort_recruits = db.Column(db.VARCHAR(100))
