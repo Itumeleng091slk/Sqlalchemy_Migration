@@ -7,9 +7,6 @@ from flask_migrate import Migrate, MigrateCommand
 connection = psycopg2.connect(database="Prod", user="user", password="pass", host="localhost", port=5432)
 cursor = connection.cursor()
 
-query = """ INSERT INTO recruit(personal_email_address)
-VALUES
-('Shaun.t@example.com')"""
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://user:pass@127.0.0.1/development'
