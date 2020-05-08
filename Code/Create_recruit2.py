@@ -4,12 +4,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 
-connection = psycopg2.connect(database="prod", user="user", password="pass", host="localhost", port=5432)
-cursor = connection.cursor()
-
-
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://user:pass@127.0.0.1/development'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://user:pass@127.0.0.1/prod'
 db = SQLAlchemy(app)
 
 migrate = Migrate(app, db)
@@ -33,8 +29,6 @@ class Recruit(db.Model):
     id_number = db.Column(db.NUMERIC(15))
     cohort = db.Column(db.VARCHAR(100))
 
-
-cursor.execute(query)
-connection.commit()  
+ 
 if __name__== '__main__':
     manager.run()
