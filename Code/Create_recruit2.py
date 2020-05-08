@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 
-connection = psycopg2.connect(database="Prod", user="user", password="pass", host="localhost", port=5432)
+connection = psycopg2.connect(database="prod", user="user", password="pass", host="localhost", port=5432)
 cursor = connection.cursor()
 
 
